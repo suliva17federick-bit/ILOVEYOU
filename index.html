@@ -9,27 +9,26 @@
       margin: 0;
       height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
+      flex-direction: column;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       font-family: "Poppins", sans-serif;
-      overflow-x: hidden;
+      overflow: hidden;
       color: white;
       text-align: center;
-      padding: 30px 15px;
-      position: relative;
+      padding: 20px;
     }
 
     /* Animated gradient background */
     body::before {
       content: "";
-      position: fixed;
+      position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: linear-gradient(270deg, #ff758c, #ff7eb3, #ff9a9e, #fad0c4);
       background-size: 800% 800%;
-      z-index: -1;
+      z-index: -2;
       animation: gradientShift 15s ease infinite;
     }
 
@@ -42,33 +41,41 @@
     /* Image container */
     .image-container {
       display: flex;
+      gap: 15px;
       justify-content: center;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       flex-wrap: wrap;
     }
 
+    /* Top images */
     .top-image {
-      width: 220px;
+      width: 180px;
       height: auto;
+      object-fit: cover;
       border-radius: 15px;
       border: 3px solid #fff;
-      box-shadow: 0 0 25px rgba(255,255,255,0.8);
+      box-shadow: 0 0 25px rgba(255,255,255,0.7);
       transition: transform 0.5s ease, box-shadow 0.5s ease;
+      animation: fadeIn 3s ease forwards;
+      opacity: 0;
     }
 
     .top-image:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(255,255,255,1);
+      box-shadow: 0 0 40px rgba(255,255,255,0.9);
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     /* Glowing title */
     h1 {
       font-size: 3em;
-      text-shadow: 0 0 10px #fff, 0 0 25px #ff6b81, 0 0 40px #ff6b81;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff6b81, 0 0 40px #ff6b81;
       animation: glow 2s ease-in-out infinite alternate;
-      margin: 10px 0;
+      margin-bottom: 10px;
     }
 
     @keyframes glow {
@@ -79,35 +86,12 @@
     /* Message */
     p {
       font-size: 1.3em;
-      max-width: 850px;
+      max-width: 800px;
       line-height: 1.8em;
       text-shadow: 0 0 10px rgba(255,255,255,0.8);
-      animation: fadeIn 2.5s ease forwards;
+      animation: fadeIn 3s ease forwards;
       opacity: 0;
-      margin-bottom: 30px;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    /* Video player styling */
-    .video-container {
-      margin-top: 20px;
-      width: 80%;
-      max-width: 560px;
-      border: 3px solid white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 0 40px rgba(255,255,255,0.8);
-      animation: fadeIn 2.5s ease forwards;
-      opacity: 0;
-    }
-
-    iframe {
-      width: 100%;
-      height: 315px;
-      border: none;
+      margin: 10px 0 0 0;
     }
 
     /* Balloons */
@@ -141,6 +125,7 @@
       position: absolute;
       width: 8px;
       height: 8px;
+      background: #fff;
       top: -10px;
       opacity: 0.8;
       animation: fall 4s linear infinite;
@@ -153,16 +138,14 @@
   </style>
 </head>
 <body>
-  <!-- Pictures -->
+  <!-- Picture Row -->
   <div class="image-container">
     <img src="meg.jpg" alt="Bee Photo 1" class="top-image">
     <img src="mahal.jpg" alt="Bee Photo 2" class="top-image">
   </div>
 
-  <!-- Title -->
   <h1>🎉 Happy Birthday, BEEEEE! 🎂</h1>
 
-  <!-- Message -->
   <p>
     Even though we’re far apart, please know that I’ll always stay loyal to you. 💖  
     Trust me, one day we’ll finally be together — just the two of us.  
@@ -173,8 +156,6 @@
     Enjoy your special day, BEEE! I love you so much 😘
   </p>
 
-
-
   <!-- Balloons -->
   <div class="balloon" style="left:10%; background:#ff6b81; animation-delay:0s;"></div>
   <div class="balloon" style="left:25%; background:#feca57; animation-delay:2s;"></div>
@@ -182,9 +163,10 @@
   <div class="balloon" style="left:65%; background:#48dbfb; animation-delay:6s;"></div>
   <div class="balloon" style="left:85%; background:#5f27cd; animation-delay:8s;"></div>
 
-  <!-- Confetti Script -->
+
   <script>
-    for (let i = 0; i < 80; i++) {
+    // Confetti animation
+    for (let i = 0; i < 70; i++) {
       const confetti = document.createElement('div');
       confetti.classList.add('confetti');
       confetti.style.left = Math.random() * 100 + 'vw';
@@ -196,4 +178,3 @@
   </script>
 </body>
 </html>
-
