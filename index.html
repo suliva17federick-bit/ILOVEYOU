@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday BEEEEE!</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Animated gradient background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(270deg, #ff758c, #ff7eb3, #ff9a9e, #fad0c4);
+      background-size: 800% 800%;
+      z-index: -2;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Image container */
+    .image-container {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    /* Top images */
+    .top-image {
+      width: 180px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 3px solid #fff;
+      box-shadow: 0 0 25px rgba(255,255,255,0.7);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      animation: fadeIn 3s ease forwards;
+      opacity: 0;
+    }
+
+    .top-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255,255,255,0.9);
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Glowing title */
+    h1 {
+      font-size: 3em;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff6b81, 0 0 40px #ff6b81;
+      animation: glow 2s ease-in-out infinite alternate;
+      margin-bottom: 10px;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #ff6b81; }
+      to { text-shadow: 0 0 20px #fff, 0 0 40px #ff3b6f; }
+    }
+
+    /* Message */
+    p {
+      font-size: 1.3em;
+      max-width: 800px;
+      line-height: 1.8em;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+      animation: fadeIn 3s ease forwards;
+      opacity: 0;
+      margin: 10px 0 0 0;
+    }
+
+    /* Music player */
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 170px;
+      border: 3px solid white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 80px;
+      height: 100px;
+      border-radius: 50% 50% 45% 55% / 55% 55% 45% 45%;
+      opacity: 0.9;
+      animation: floatUp 10s linear infinite;
+    }
+
+    .balloon::before {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      width: 2px;
+      height: 30px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      top: -10px;
+      opacity: 0.8;
+      animation: fall 4s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(720deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Picture Row -->
+  <div class="image-container">
+    <img src="meg.jpg" alt="Bee Photo 1" class="top-image">
+    <img src="mahal.jpg" alt="Bee Photo 2" class="top-image">
+  </div>
+
+  <h1>🎉 Happy Birthday, BEEEEE! 🎂</h1>
+
+  <p>
+    Even though we’re far apart, please know that I’ll always stay loyal to you. 💖  
+    Trust me, one day we’ll finally be together — just the two of us.  
+    I hope you’ll appreciate this simple gift I made for you. 🎁  
+    It might not be expensive, but it comes from the deepest part of my heart. ❤️  
+    I’ll keep holding on because what we have is real and worth waiting for.  
+    Distance means so little when someone means so much. 🌍💫  
+    Enjoy your special day, BEEE! I love you so much 😘
+  </p>
+
+  <!-- Balloons -->
+  <div class="balloon" style="left:10%; background:#ff6b81; animation-delay:0s;"></div>
+  <div class="balloon" style="left:25%; background:#feca57; animation-delay:2s;"></div>
+  <div class="balloon" style="left:45%; background:#1dd1a1; animation-delay:4s;"></div>
+  <div class="balloon" style="left:65%; background:#48dbfb; animation-delay:6s;"></div>
+  <div class="balloon" style="left:85%; background:#5f27cd; animation-delay:8s;"></div>
+
+  <!-- Music Player -->
+  <div class="music-player">
+    <iframe width="300" height="170"
+      src="https://www.youtube.com/embed/cKLPNxXmdvk?autoplay=1&loop=1&playlist=cKLPNxXmdvk"
+      title="Birthday Song"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script>
+    // Confetti animation
+    for (let i = 0; i < 70; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      confetti.style.animationDuration = 3 + Math.random() * 3 + 's';
+      confetti.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
